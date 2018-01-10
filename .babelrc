@@ -1,6 +1,6 @@
 {
-  "stage": 0, // зазвичай краще так не робити, але...
-  "env": {    // а тут ми налаштовуємо наш react-transform
+  "stage": 0,
+  "env": {
     "development": {
       "plugins": ["react-transform"],
       "extra": {
