@@ -27,8 +27,16 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loaders: ['babel'],
-            include: path.join(__dirname, 'app')
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            include: path.join(__dirname, 'app'),
+            query: {
+                presets:['stage-2', 'react']
+            }
+        }, {
+            test: /\.css$/,
+            include: /node_modules/,
+            loaders: ['style-loader', 'css-loader'],
         }]
     }
 };
