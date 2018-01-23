@@ -4,33 +4,26 @@ import { connect } from 'react-redux';
 import { Layout, Menu, Icon, Badge } from 'antd';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-import HomeLayout from './layouts/Home';
-import AccountLayout from './layouts/Account';
-
 import Routes from '../routes';
-
-const Layouts = {
-    home: HomeLayout,
-    account: AccountLayout
-}
-
-const { Header, Footer } = Layout;
 
 import './app.less'
 import Logo from './assets/logo.svg';
 
+const { Header, Footer } = Layout;
+
 class App extends Component {
+
     render() {
         return (
             <Layout>
-                <Layout>
-                    <Router>
+                <Router>
+                    <Layout>
                         <Header style={{ background: '#fff', padding: 0 }}>
                             <Link to="/"><Logo width={100} className="logo" /></Link>
 
                             <Menu
                                 mode="horizontal"
-                                selectedKeys={[this.props.app.current]}
+                                defaultSelectedKeys={[this.props.app.default_page]}
                             >
                                 <Menu.Item key="home">
                                     <Link to="/"><Icon type="home" />Home</Link>
@@ -45,7 +38,7 @@ class App extends Component {
                                     <Link to="/features"><Icon type="tag-o" />Features</Link>
                                 </Menu.Item>
                                 <Menu.Item key="terms_conditions">
-                                    <Link to="/terms_conditions"><Icon type="profile" />Terms & Conditions</Link>
+                                    <Link to="/terms-and-conditions"><Icon type="profile" />Terms & Conditions</Link>
                                 </Menu.Item>
                                 <Menu.Item key="account">
                                     <Link to="/account">
@@ -70,8 +63,8 @@ class App extends Component {
                         ))}
                         </Switch>
 
-                    </Router>
-                </Layout>
+                    </Layout>
+                </Router>
 
                 <Footer style={{ textAlign: 'center' }}>
                     Budun ©2018 Created by Budun.inc

@@ -1,6 +1,6 @@
 export default function () {
     return {
-        current: 'tasks',
+        default_page: 'home',
         user_notification: 1,
         my_current: 'my_tasks',
         layout: 'home'

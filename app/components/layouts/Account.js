@@ -1,13 +1,9 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from "react";
+import { Layout, Menu, Icon } from 'antd';
 
-import { Layout, Menu, Icon, Button } from 'antd';
 const { Content, Sider } = Layout;
 
-import './accountLayout.less'
-
 class AccountLayout extends Component {
-
     state = {
         collapsed: false,
     };
@@ -18,7 +14,12 @@ class AccountLayout extends Component {
 
     render() {
         return (
-            <Layout style={{ minHeight: '100vh' }}>
+            <Layout>
+                <Content>
+                    <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                        {this.props.children}
+                    </div>
+                </Content>
                 <Sider
                     style={{ background: '#fff' }}
                     breakpoint="lg"
@@ -51,20 +52,10 @@ class AccountLayout extends Component {
                     </Menu>
 
                 </Sider>
-                <Content>
-                    <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
 
-                    </div>
-                </Content>
             </Layout>
         )
     }
-}
+};
 
-function mapStateToProps (state) {
-    return {
-        app: state.app
-    }
-}
-
-export default connect(mapStateToProps)(AccountLayout);
+export default AccountLayout;
